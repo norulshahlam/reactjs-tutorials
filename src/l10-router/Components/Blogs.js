@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button, Table } from "react-bootstrap";
+import { Button, Table, Form } from "react-bootstrap";
 
 const Blogs = ({ blog, addBlog }) => {
   const formHandler = (e) => {
     e.preventDefault();
-    const title = e.target.elements.title.value.trim();
-    const message = e.target.elements.blog.value.trim();
+    const title = e.target.elements.title2.value.trim();
+    const message = e.target.elements.message2.value.trim();
+    console.log(e.target.elements.message2.value);
     if (title && message)
       addBlog([...blog, { title: title, message: message }]);
     else alert("fill in both fileds!");
@@ -15,18 +16,24 @@ const Blogs = ({ blog, addBlog }) => {
   return (
     <div>
       <h1>All Blogs</h1>
-      <h2>Add blogs</h2>
-      <form onSubmit={formHandler}>
-        <input type="text" placeholder="title" name="title" />
-        <input
-          type="text"
-          placeholder="What do you want to talk about?"
-          name="blog"
-        />
+
+      <Form onSubmit={formHandler}>
+        <Form.Group className="mb-3" controlId="title2">
+          <Form.Label>Your title</Form.Label>
+          <Form.Control type="text" placeholder="Enter title" />
+          <Form.Text className="text-muted">Think of a title first!</Form.Text>
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="message2">
+          <Form.Label>Your message</Form.Label>
+          <Form.Control type="text" placeholder="Enter your thoughts" />
+          <Form.Text className="text-muted">
+            What would u like to talk about?
+          </Form.Text>
+        </Form.Group>
         <Button variant="primary" type="submit">
           Add option
         </Button>
-      </form>
+      </Form>
       <h2> This is the list of all blogs</h2>
 
       <Table>
