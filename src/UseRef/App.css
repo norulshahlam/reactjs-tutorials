@@ -1,0 +1,25 @@
+.styles, input, button{
+  display: inline-block;
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+  width: 50%;
+  text-decoration: none;
+  text-align: center;
+
+}
+.App{
+  display: flex;
+  flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 10px 0;
+width: 50%;
+border-radius: 20px;
+border: 1px solid black;
+margin: 5px auto;
+}
+
+
+
