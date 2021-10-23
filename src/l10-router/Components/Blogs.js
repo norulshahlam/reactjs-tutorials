@@ -44,7 +44,7 @@ const Blogs = ({ blog, addBlog }) => {
                   <Link
                     to={{
                       pathname: `/blog/${i + 1}`,
-                      state: { v },
+                      state: { v, i },
                     }}
                   >
                     {v.title}

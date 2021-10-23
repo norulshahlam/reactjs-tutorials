@@ -70,6 +70,9 @@ also, pass dynamic values to url and hw to retrieve it using props.match.params.
 
 *********************************************
 
+desturcturing
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment#nested_object_and_array_destructuring
+
 a simple site for portfolio using dynamic url
 */
 
