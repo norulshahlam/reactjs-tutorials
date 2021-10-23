@@ -9,7 +9,8 @@ import './index.css';
 // import App from './l6-toggle-hide-show/App';
 // import App from './l12-understanding-state/App';
 // import App from './l9-react-router/App';
-import App from './l10-router/App';
+// import App from './l10-router/App';
+import App from './l2-ConditionalRend/App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
