@@ -7,8 +7,11 @@ import './index.css';
 // import App from './l4-update-state-array/App';
 // import App from './l5-select-random-list/App';
 // import App from './l6-toggle-hide-show/App';
-import App from './l12-understanding-state/App';
+// import App from './l12-understanding-state/App';
+// import App from './l9-react-router/App';
+import App from './l10-router/App';
 import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 ReactDOM.render(
   <React.StrictMode>
