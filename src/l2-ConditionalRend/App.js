@@ -16,33 +16,24 @@ import False from "./False";
 import Red from "./Red";
 import True from "./True";
 import { Button } from "react-bootstrap";
-let booleanComponent = "";
-let colorComponent = "";
+import Color from "./Color";
 const App = () => {
   const [color, newColor] = useState("");
   const [bool, setBool] = useState("");
 
   const onClick = (e) => {
-    newColor((prevState) => (prevState = e.target.innerText));
-    if (color === "Red") {
-      colorComponent = <Red />;
-    } else if (color === "Blue") {
-      colorComponent = <Blue />;
-    } else {
-      colorComponent = "";
-    }
-    console.log(color);
+    e.preventDefault();
+
+    newColor(
+      (prevState) =>
+        (prevState = e.target.value ? <Color color={e.target.value} /> : "")
+    );
   };
 
-  const setBoolFalse = () => {
-    setBool((prevState) => (prevState = false));
-    booleanComponent = <False />;
+  const setBoolFalse = (e) => {
+    setBool((prevState) => (prevState = e.target.value=="true" ? <True /> : <False />));
   };
-  const setBoolTrue = () => {
-    setBool((prevState) => (prevState = true));
-    booleanComponent = <True />;
-  };
-
+ 
   useEffect(() => {
     console.log(color, bool);
   }, [bool, color]);
@@ -52,17 +43,26 @@ const App = () => {
       <div className="ifElse">
         <h1>Color Selector</h1>
         <h3>Select your comp</h3>
-        <Button onClick={onClick}>Blue</Button>
-        <Button onClick={onClick}>Red</Button>
-        <Button onClick={onClick}>Reset</Button>
-        {colorComponent}
+        <Button onClick={onClick} value="blue">
+          Blue
+        </Button>
+        <Button onClick={onClick} value="red">
+          Red
+        </Button>
+        <Button onClick={onClick} value="green">
+          Green
+        </Button>
+        <Button onClick={onClick} value="">
+          Reset
+        </Button>
+
+        {color}
       </div>
-      {/* this is setting state within the element  */}
       <div className="ifElse">
         <h1>Choose a boolean value</h1>
-        <Button onClick={setBoolFalse}>false</Button>
-        <Button onClick={setBoolTrue}>true</Button>
-        {booleanComponent}
+        <Button onClick={setBoolFalse} value="false">false</Button>
+        <Button onClick={setBoolFalse} value="true">true</Button>
+        {bool}
       </div>
     </div>
   );
