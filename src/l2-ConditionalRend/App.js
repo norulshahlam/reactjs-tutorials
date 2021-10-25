@@ -33,7 +33,7 @@ const App = () => {
   const setBoolFalse = (e) => {
     setBool((prevState) => (prevState = e.target.value=="true" ? <True /> : <False />));
   };
- 
+  
   useEffect(() => {
     console.log(color, bool);
   }, [bool, color]);
