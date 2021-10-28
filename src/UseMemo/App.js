@@ -1,50 +1,44 @@
 /*
 useMemo
 
-in this example, we have a slowdown method that multiplies a number by 2.
-so everytime a number changes, the multiplier value updates a sec later.
-but this also affects the theme changer bcos everytime any state changed, the whole code runs again, that is including the slowdown method
-this is inefficient cos the number wont change when a theme changes yet theme is also affected.
+in this example, we have 2 identical Child component and when a state changes, this component gets re-rendered. We can find out by using useEffect on the child component and set a counter to it.
+
+Now by using useMemo and using empty array as its dependency, it wont re-redner this component, unless the dependency changes. The configuration is similar to useEffect
 
 by using useMemo, it checks for a state defined (number input for this case), n if the number doesnt change, it will skip this method
 
 useMemo will only recompute the memorized value when one of the dependencies has changed. This optimization helps to avoid expensive calculations on every render.
-*/
 
+Should I use useMemo everywhere?
+Why not use useMemo everywhere then? In short, it's not a free performance optimisation. There's an additional cost (memory usage, for one) incurred when setting up useMemo , that can very quickly outweigh the performance benefit of remembering every single function's possible value.
+*/
 import React, { useState, useMemo } from "react";
-import "./App.css";
+import Child from "./Child";
+import { Button } from "react-bootstrap";
+import "../App.css";
 
 const App = () => {
-  const [num, setNum] = useState(0);
-  const [dark, setDark] = useState(false);
+  const [count, setCount] = useState(0);
+  const click = () => setCount(count + 1);
+  //
+  const memoChild = useMemo(() => {
+    return <Child />;
+    // add a state in this dependency and it will re-render as normal
+  }, []);
 
-  const styles = {
-    backgroundColor: dark ? "black" : "white",
-    color: dark ? "white" : "black",
-  };
-  const doubleNum = useMemo(() => {
-    return slowFunc(num);
-  }, [num]);
-
+  const normalChild = <Child />;
+  //
   return (
-    <div className="App" style={styles}>
-      <input
-        type="number"
-        value={num}
-        onChange={(e) => setNum(parseInt(e.target.value))}
-      />
-      <div className="styles">{doubleNum}</div>
-
-      <button onClick={() => setDark((prevDark) => !prevDark)}>
-        Change theme
-      </button>
+    <div className="App">
+      <div>
+        <Button onClick={click}>Increase count</Button> <>count : {count}</>
+      </div>
+      <header>
+        <h3>Use Memo: <>{memoChild}</></h3>
+        <h3>Normal Render: <>{normalChild}</></h3>
+      </header>
     </div>
   );
 };
-
-function slowFunc(num) {
-  for (let i = 0; i < 1000000000; i++) {}
-  return num * 2;
-}
 
 export default App;
