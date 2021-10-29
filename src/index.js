@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './l2-ConditionalRend/App';
-import App from './UseMemo/App';
+import App from './l13-UseMemo/App';
 // import App from './alaOdeng/App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
