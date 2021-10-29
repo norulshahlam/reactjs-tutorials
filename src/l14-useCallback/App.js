@@ -34,7 +34,8 @@ const App = () => {
     color: dark ? "#FFF" : "#333",
     margin:"50% 5%",
     padding:"30px",
-    borderRadius:"20px"
+    borderRadius:"20px",
+    border:"3px solid black"
   };
 
   const getItems = useCallback(() => {
