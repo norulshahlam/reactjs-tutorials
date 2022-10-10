@@ -34,6 +34,7 @@ const App = () => {
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
+        
         <div>My name is: {name}</div>
         <div>It used to be: {prevName.current}</div>
         <div>It rendered {renderCount.current} times</div>
