@@ -11,9 +11,7 @@ https://reactjs.org/docs/hooks-state.html
 
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import Blue from "./Blue";
 import False from "./False";
-import Red from "./Red";
 import True from "./True";
 import { Button } from "react-bootstrap";
 import Color from "./Color";
@@ -31,9 +29,12 @@ const App = () => {
   };
 
   const setBoolFalse = (e) => {
-    setBool((prevState) => (prevState = e.target.value=="true" ? <True /> : <False />));
+    setBool(
+      (prevState) =>
+        (prevState = e.target.value == "true" ? <True /> : <False />)
+    );
   };
-  
+
   useEffect(() => {
     console.log(color, bool);
   }, [bool, color]);
@@ -55,13 +56,17 @@ const App = () => {
         <Button onClick={onClick} value="">
           Reset
         </Button>
-
+        <h1></h1>
         {color}
       </div>
       <div className="ifElse">
         <h1>Choose a boolean value</h1>
-        <Button onClick={setBoolFalse} value="false">false</Button>
-        <Button onClick={setBoolFalse} value="true">true</Button>
+        <Button onClick={setBoolFalse} value="false">
+          false
+        </Button>
+        <Button onClick={setBoolFalse} value="true">
+          true
+        </Button>
         {bool}
       </div>
     </div>
