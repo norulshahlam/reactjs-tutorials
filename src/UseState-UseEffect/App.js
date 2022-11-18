@@ -1,5 +1,5 @@
 /*
-We will be learninig on Hook - Staate and useEffect
+We will be learninig on Hook - State and useEffect
 
 useEffect serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount. it's a lifecycle method which runs every time a component gets new props, or a state change happens. That's the trick. If we include a state in useEffect we would see an infinite loop bcos:
 

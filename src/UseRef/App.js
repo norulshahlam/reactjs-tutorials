@@ -15,6 +15,7 @@ const App = () => {
   const renderCount = useRef(0);
   const prevName = useRef("");
   const inputRef = useRef();
+  console.log("rendered!");
 
   useEffect(() => {
     renderCount.current = renderCount.current + 1;
