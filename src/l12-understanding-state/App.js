@@ -35,13 +35,15 @@ const App = () => {
 
   return (
     <div className="App">
-      <br/>
-      <br/>
+      <br />
+      <br />
       <button onClick={incrementWithoutPrevState}>
         Increment 4 times without PrevState
       </button>
-      <br/>
-      <button onClick={incrementWithPrevState}>Increment 4 times with PrevState</button>
+      <br />
+      <button onClick={incrementWithPrevState}>
+        Increment 4 times with PrevState
+      </button>
       <h1>Count: {data}</h1>
     </div>
   );

@@ -31,7 +31,7 @@ const App = () => {
   const setBoolFalse = (e) => {
     setBool(
       (prevState) =>
-        (prevState = e.target.value == "true" ? <True /> : <False />)
+        (prevState = e.target.value === "true" ? <True /> : <False />)
     );
   };
 

@@ -11,15 +11,18 @@ button 'show' when element is hidden
 
 */
 const App = () => {
-  let [visibility,toggleVisibility] =useState(false);
+
+  let [visibility, toggleVisibility] = useState(false);
+  
   const toggle = () => {
-   toggleVisibility(visibility=> !visibility);
+    toggleVisibility((visibility) => !visibility);
   };
+  
   return (
     <div className="App">
-       <h1>Visibility toggle</h1>
+      <h1>Visibility toggle</h1>
       <button onClick={toggle}>{visibility ? "hide" : "show"}</button>
-      {visibility && <h1>HELLO</h1>}
+      {visibility ? <h1>HELLO</h1> : null}
     </div>
   );
 };
