@@ -2,9 +2,9 @@
  useRef() is a hook to keep track of variables without causing re-renders.
 
  use case: 
- 1. track changes without enforcing the re-rendering of the component
- 2. to persist current value when a state change.
- 3. ref a html element
+ 1. track changes without enforcing the re-rendering of the component (mostly used)
+ 2. to persist current value when a state change. (mostly used)
+ 3. ref a html element (seldom used)
 */
 
 import React, { useState, useEffect, useRef } from "react";
